@@ -242,15 +242,10 @@ void update_sockets(UIState *s) {
   if (sm.updated("carState")) {
     auto data = sm["carState"].getCarState();
     s->scene.brakeLights = data.getBrakeLights();
-    s->scene.hvBpower = data.getHvBpower();
+    s->scene.engineRPM = data.getEngineRPM();
     s->scene.aEgo = data.getAEgo();
     s->scene.steeringTorqueEps = data.getSteeringTorqueEps();
-    if(s->scene.leftBlinker!=data.getLeftBlinker() || s->scene.rightBlinker!=data.getRightBlinker()) {
-      s->scene.blinker_blinkingrate = 100;
-    }
-    s->scene.leftBlinker = data.getLeftBlinker();
-    s->scene.rightBlinker = data.getRightBlinker();
-  }
+  } 
 
   if (sm.updated("sensorEvents")) {
     for (auto sensor : sm["sensorEvents"].getSensorEvents()) {
@@ -334,7 +329,7 @@ void ui_update(UIState *s) {
       s->scene.athenaStatus = NET_CONNECTED;
     } else {
       s->scene.athenaStatus = NET_ERROR;
-
+  
 
     }
   }
