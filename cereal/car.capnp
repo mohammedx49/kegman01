@@ -187,7 +187,7 @@ struct CarState {
 
   readdistancelines @39 :Float32;
   lkMode @40 :Bool;
-  engineRPM @41 :Float32;
+  hvBpower @41 :Float32; # HV Battery Power
 
   # which packets this state came from
   canMonoTimes @12: List(UInt64);

@@ -141,7 +141,6 @@ class CarInterface(CarInterfaceBase):
 
     ret.canValid = self.cp.can_valid
     ret.steeringRateLimited = self.CC.steer_rate_limited if self.CC is not None else False
-    ret.engineRPM = self.CS.engineRPM
 
     buttonEvents = []
 
@@ -206,5 +205,5 @@ class CarInterface(CarInterfaceBase):
                                hud_v_cruise, c.hudControl.lanesVisible,
                                c.hudControl.leadVisible, c.hudControl.visualAlert)
 
-    self.frame += 1        
+    self.frame += 1
     return can_sends

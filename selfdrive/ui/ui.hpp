@@ -52,6 +52,7 @@ const int header_h = 420;
 const int footer_h = 280;
 const Rect settings_btn = {50, 35, 200, 117};
 const Rect home_btn = {60, 1080 - 180 - 40, 180, 180};
+const int box_y = 30;
 
 const int UI_FREQ = 20;   // Hz
 
@@ -114,13 +115,17 @@ typedef struct UIScene {
   bool recording;
   float gpsAccuracyUblox;
   float altitudeUblox;
-  int engineRPM;
+  float HVBpower;
   bool steerOverride;
   float output_scale;
   float steeringTorqueEps;
   float aEgo;
   float cpuTemp;
   int cpuPerc;
+
+  bool leftBlinker;
+  bool rightBlinker;
+  int blinker_blinkingrate;
 
   cereal::HealthData::HwType hwType;
   int satelliteCount;
