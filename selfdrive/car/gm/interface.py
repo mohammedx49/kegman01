@@ -81,8 +81,8 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0.], [0.]]
     ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2], [0.00]]
     ret.lateralTuning.pid.kf = 0.00004   # full torque for 20 deg at 80mph means 0.00007818594
-    ret.steerRateCost = 0.5
-    ret.steerActuatorDelay = 0.2  # Default delay, not measured yet
+    ret.steerRateCost = 0.6
+    ret.steerActuatorDelay = 0.1  # Default delay, not measured yet
 
     if candidate == CAR.VOLT:
       # supports stop and go, but initial engage must be above 18mph (which include conservatism)
@@ -99,15 +99,15 @@ class CarInterface(CarInterfaceBase):
       ret.mass = 1616. + STD_CARGO_KG
       ret.safetyModel = car.CarParams.SafetyModel.gm
       ret.wheelbase = 2.60096
-      ret.steerRatio = 16.8
+      ret.steerRatio = 16.3
       ret.steerRatioRear = 0.
       ret.centerToFront = ret.wheelbase * 0.4 # wild guess
       #PID tunning not to prevent oversteer
       ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[10., 25.0], [10., 25.0]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.1, 0.12], [0.008, 0.016]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.1, 0.13], [0.005, 0.01]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.7]  #corolla from shane fork : 0.725
-      ret.lateralTuning.pid.kf = 0.00006
+      ret.lateralTuning.pid.kf = 0.000038
       tire_stiffness_factor = 0.5
 
     elif candidate == CAR.MALIBU:
