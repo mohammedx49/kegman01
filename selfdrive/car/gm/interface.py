@@ -152,7 +152,7 @@ class CarInterface(CarInterfaceBase):
       ret.steerRatioRear = 0.
       ret.centerToFront = ret.wheelbase * 0.49
       
-     elif candidate == CAR.ESCALADE:
+    elif candidate == CAR.ESCALADE:
       # supports stop and go, but initial engage must be above 18mph (which include conservatism)
       ret.minEnableSpeed = 18 * CV.MPH_TO_MS
       ret.mass = 2645. + STD_CARGO_KG
